@@ -59,9 +59,7 @@ public class MealRepository {
 		tq.setParameter("id_meal_param", id);
 		Meal meal = null;
 		try {
-    		// Get matching customer object and output
     		meal = tq.getSingleResult();
-    		System.out.println(meal.getMeal_name() + " " + meal.getCountry());
     	}
     	catch(NoResultException ex) {
     		ex.printStackTrace();
@@ -113,18 +111,38 @@ public class MealRepository {
 	            edited_meal.setMinutes_to_cook(minutes);
 	            edited_meal.setRecipe(recipe);
 	 
-	            // Save the customer object
+	            // Zapisuje obiekt meal
 	            em.persist(edited_meal);
 	            et.commit();
 	        } catch (Exception ex) {
-	            // If there is an exception rollback changes
+	
 	            if (et != null) {
 	                et.rollback();
 	            }
 	            ex.printStackTrace();
 	        } finally {
-	            // Close EntityManager
 	            em.close();
 	        }
 	    }
+	public void deleteMeal(Integer id) {
+    	EntityManager em = ENTITY_MANAGER_FACTORY.createEntityManager();
+        EntityTransaction et = null;
+        Meal meal = null;
+ 
+        try {
+            et = em.getTransaction();
+            et.begin();
+            meal = em.find(Meal.class, id);
+            em.remove(meal);
+            et.commit();
+        } catch (Exception ex) {
+        	
+            if (et != null) {
+                et.rollback();
+            }
+            ex.printStackTrace();
+        } finally {
+            em.close();
+        }
+    }
 }

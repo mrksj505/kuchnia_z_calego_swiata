@@ -11,6 +11,8 @@
 	<div align="center">
 		<h1>Meals List 2</h1>
 		
+		<h3><a href="new">New Meal</a></h3>
+		
 		<table border="1" cellpadding="5">
 			<tr>
 				<th>Number</th>
@@ -31,6 +33,8 @@
 				<td>${meal.recipe}</td>
 				<td>
 					<a href="edit?id=${meal.id_meal}">Edit</a>
+					&nbsp;&nbsp;
+					<a href="delete?id=${meal.id_meal}">Delete</a>
 				</td>
 			</tr>
 			</c:forEach>

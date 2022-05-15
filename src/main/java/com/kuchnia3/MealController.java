@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -26,15 +27,23 @@ public class MealController {
 	    return mav;
 	}
 	
+	@RequestMapping(value="/new", method=RequestMethod.GET)
+	public ModelAndView newMeal(ModelAndView mav) {
+		Meal newMeal = new Meal();
+		mav.addObject("meal", newMeal);
+		mav.setViewName("meal_form");
+		return mav;
+	} 
+	
 	@RequestMapping(value="/edit", method=RequestMethod.GET)
 	public ModelAndView editMeal(HttpServletRequest request) {
 		Integer id = Integer.parseInt(request.getParameter("id"));
 		Meal meal = repo.getMeal(id);
-		ModelAndView model = new ModelAndView("meal_form");
+		ModelAndView mav = new ModelAndView("meal_form");
 		
-		model.addObject("meal", meal);
+		mav.addObject("meal", meal);
 		
-		return model;
+		return mav;
 	}
 	
 	@RequestMapping(value="/save", method=RequestMethod.POST)
@@ -45,6 +54,13 @@ public class MealController {
 		else {
 			repo.updateMeal(meal.getId_meal(),meal.getMeal_name(), meal.getKind(), meal.getCountry(), meal.getMinutes_to_cook(), meal.getRecipe());
 		}
+		return new ModelAndView("redirect:/");
+	}
+	
+	@RequestMapping(value="/delete", method=RequestMethod.GET)
+	public ModelAndView deleteMeal(@RequestParam Integer id) {
+		repo.deleteMeal(id);
+		
 		return new ModelAndView("redirect:/");
 	}
 	

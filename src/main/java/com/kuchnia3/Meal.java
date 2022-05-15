@@ -5,20 +5,19 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "meal_dwa")
-@SequenceGenerator(name = "seq_meal_dwa_gen", sequenceName = "seq_meal_dwa", allocationSize=1)
 public class Meal implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@Column(name = "id_meal", unique = true)
-	@GeneratedValue(generator="seq_meal_dwa_gen")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Integer id_meal;
 
 	@Column(name = "meal_name")
