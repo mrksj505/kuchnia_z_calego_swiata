@@ -145,4 +145,24 @@ public class MealRepository {
             em.close();
         }
     }
+	public List<Meal> searchMeal(String keyword){
+		EntityManager em = ENTITY_MANAGER_FACTORY.createEntityManager();
+		String query = "SELECT m FROM Meal m WHERE m.meal_name LIKE '%' || :keyword || '%'"
+	            + " OR m.kind LIKE '%' || :keyword || '%'"
+	            + " OR m.country LIKE '%' || :keyword || '%'" 
+	            + " OR m.recipe LIKE '%' || :keyword || '%'";
+		TypedQuery<Meal> tq = em.createQuery(query, Meal.class);
+		tq.setParameter("keyword", keyword);
+		List<Meal> searchedListMeal = null;
+		try {
+			searchedListMeal = tq.getResultList();
+		}
+		catch(NoResultException ex) {
+    		ex.printStackTrace();
+    	}
+    	finally {
+    		em.close();
+    	}
+		return searchedListMeal;
+	}
 }

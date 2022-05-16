@@ -10,7 +10,10 @@
 <body>
 	<div align="center">
 		<h1>Meals List 2</h1>
-		
+		<form method="get" action="search">
+        	<input type="text" name="keyword" /> &nbsp;
+        	<input type="submit" value="Search" />
+    	</form>
 		<h3><a href="new">New Meal</a></h3>
 		
 		<table border="1" cellpadding="5">

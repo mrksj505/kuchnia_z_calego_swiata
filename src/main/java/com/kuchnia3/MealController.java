@@ -64,4 +64,13 @@ public class MealController {
 		return new ModelAndView("redirect:/");
 	}
 	
+	@RequestMapping("/search")
+	public ModelAndView searchMeal(@RequestParam String keyword) {
+	    List<Meal> result = repo.searchMeal(keyword);
+	    ModelAndView mav = new ModelAndView("search");
+	    mav.addObject("result", result);
+	 
+	    return mav;    
+	}
+	
 }
