@@ -4,6 +4,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Meal Manager</title>
 </head>
@@ -24,6 +25,7 @@
 				<th>Country</th>
 				<th>Minutes to Cook</th>
 				<th>Recipe</th>
+				<th>Image</th>
 				<th>Actions</th>
 			</tr>
 			<c:forEach items="${listMeal}" var="meal" varStatus="status">
@@ -34,6 +36,7 @@
 				<td>${meal.country}</td>
 				<td>${meal.minutes_to_cook}</td>
 				<td>${meal.recipe}</td>
+				<td><img alt="photo" src="${pageContext.request.contextPath}/images/${meal.meal_name}.jpg" width="100" height="75"></td>
 				<td>
 					<a href="edit?id=${meal.id_meal}">Edit</a>
 					&nbsp;&nbsp;
