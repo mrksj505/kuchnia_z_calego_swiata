@@ -2,13 +2,17 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<html xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Meal Manager</title>
 </head>
 <body>
+	<form method="get" action="logout">
+		<input type="submit" value="Logout"/>
+	</form>
 	<div align="center">
 		<h1>Meals List 2</h1>
 		<form method="get" action="search">

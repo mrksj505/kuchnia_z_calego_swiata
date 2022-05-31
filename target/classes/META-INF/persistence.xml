@@ -24,6 +24,7 @@
             
             <property name="javax.persistence.jdbc.password" value="mrksj" />
             
+            
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.format_sql" value="true"/>
             
