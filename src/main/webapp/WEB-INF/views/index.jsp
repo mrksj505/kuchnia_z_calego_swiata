@@ -2,35 +2,38 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html xmlns:th="https://www.thymeleaf.org"
-      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<html>
 <head>
+<link href="${pageContext.request.contextPath}/css/main.css" rel="stylesheet" >
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Meal Manager</title>
+<title>Kuchnia Świata</title>
 </head>
 <body>
 	<form method="get" action="logout">
-		<input type="submit" value="Logout"/>
+		<input class="button" type="submit" value="&nbsp; Wyloguj &nbsp;"/>
 	</form>
-	<div align="center">
-		<h1>Meals List 2</h1>
-		<form method="get" action="search">
-        	<input type="text" name="keyword" /> &nbsp;
-        	<input type="submit" value="Search" />
-    	</form>
-		<h3><a href="new">New Meal</a></h3>
+	
+		<div class="top" align="center">
+			<h1 class="kuchnia_title">KUCHNIA ŚWIATA</h1>
+			<form method="get" action="search">
+	        	<input type="text" name="keyword" /> &nbsp;
+	        	<input class="button" type="submit" value="&nbsp; Znajdź &nbsp;" />
+	    	</form>
+    	</div>
+    	<div class="bot">
+		<a class="button" href="new">&nbsp; + Dodaj nowe danie &nbsp;</a>
 		
 		<table border="1" cellpadding="5">
 			<tr>
-				<th>Number</th>
-				<th>Name</th>
-				<th>Kind</th>
-				<th>Country</th>
-				<th>Minutes to Cook</th>
-				<th>Recipe</th>
-				<th>Image</th>
-				<th>Actions</th>
+				<th>Numer</th>
+				<th>Nazwa</th>
+				<th>Rodzaj</th>
+				<th>Kraj</th>
+				<th>Czas (min)</th>
+				<th>Zdjęcie</th>
+				<th>Akcje</th>
 			</tr>
 			<c:forEach items="${listMeal}" var="meal" varStatus="status">
 			<tr>
@@ -39,16 +42,17 @@
 				<td>${meal.kind}</td>
 				<td>${meal.country}</td>
 				<td>${meal.minutes_to_cook}</td>
-				<td>${meal.recipe}</td>
-				<td><img alt="photo" src="${pageContext.request.contextPath}/images/${meal.meal_name}.jpg" width="100" height="75"></td>
+				<td><img alt="photo" src="${pageContext.request.contextPath}/images/${meal.meal_name}.jpg" width="150" height="100"></td>
 				<td>
-					<a href="edit?id=${meal.id_meal}">Edit</a>
-					&nbsp;&nbsp;
-					<a href="delete?id=${meal.id_meal}">Delete</a>
+					<a class="button" style="border: 2px solid rgb(210, 210, 210);" href="details?id=${meal.id_meal}">&nbsp;Przepis&nbsp;</a>
+					<br>
+					<a class="button" style="border: 2px solid rgb(210, 210, 210);" href="edit?id=${meal.id_meal}">&nbsp;Edytuj&nbsp;</a>
+					<br>
+					<a class="button" style="border: 2px solid rgb(210, 210, 210);" href="delete?id=${meal.id_meal}">&nbsp;Usuń&nbsp;</a>
 				</td>
 			</tr>
 			</c:forEach>
 		</table>
-	</div>
+		</div>
 </body>
 </html>

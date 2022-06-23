@@ -67,14 +67,14 @@ public class AuthenticationController {
 		User theUser = userRepository.getUserByName(loginFormDTO.getUsername());
 
 		if (theUser == null) {
-			session.setAttribute("errorLogin", "Username or Password is incorrect");
+			session.setAttribute("errorLogin", "Nazwa lub Hasło jest niepoprawne");
 			return "redirect:";
 		}
 
 		String password = loginFormDTO.getPassword();
 
 		if (!theUser.isMatchingPassword(password)) {
-			session.setAttribute("errorLogin", "Username or Password is incorrect");
+			session.setAttribute("errorLogin", "Nazwa lub Hasło jest niepoprawne");
 			return "redirect:";
 		}
 
@@ -90,7 +90,7 @@ public class AuthenticationController {
 		User existingUser = userRepository.getUserByName(registerFormDTO.getUsername());
 
 		if (existingUser != null) {
-			session.setAttribute("errorUsername", "A user with that username already exists");
+			session.setAttribute("errorUsername", "Użytkownik z taką nazwą istnieje");
 			return "redirect:";
 		}
 
@@ -98,7 +98,7 @@ public class AuthenticationController {
 		String verifyPassword = registerFormDTO.getVerifyPassword();
 		
 		if (!(password.equals(verifyPassword))) {
-			session.setAttribute("errorPasswords", "Passwords do not match");
+			session.setAttribute("errorPasswords", "Hasła nie są identyczne");
 			return "redirect:";
 		}
 

@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link href="${pageContext.request.contextPath}/css/main.css" rel="stylesheet" >
 <meta charset="UTF-8">
 <title>New/Edit Meal</title>
 </head>
@@ -31,7 +32,7 @@
 			</tr>
 			<tr>
 				<td>Recipe:</td>
-				<td><form:input path="recipe"/></td>
+				<td><form:textarea style="white-space: pre-wrap;" id="recipe" path="recipe"/></td>
 			</tr>
 			<tr>
 				<td colspan="2" align="center"><input type="submit" value="Save"></td>

@@ -29,16 +29,13 @@ public class SpringMvcConfig implements WebMvcConfigurer {
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		registry.addResourceHandler("/images/**").addResourceLocations("/images/");
+		registry.addResourceHandler("/css/**").addResourceLocations("/css/");
 	}
-
-	// Create spring-managed object to allow the app to access our filter
 
 	@Bean
 	public AuthenticationFilter authenticationFilter() {
 		return new AuthenticationFilter();
 	}
-
-	// Register the filter with the Spring container
 
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {

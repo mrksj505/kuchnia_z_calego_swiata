@@ -26,6 +26,15 @@ public class MealController {
 	    return mav;
 	}
 	
+	@RequestMapping(value="/details", method=RequestMethod.GET)
+	public ModelAndView detailsMeal(ModelAndView mav, HttpServletRequest request) {
+		Integer id = Integer.parseInt(request.getParameter("id"));
+		Meal meal = repo.getMeal(id);
+		mav.addObject("meal", meal);
+		mav.setViewName("details");
+		return mav;
+	} 
+	
 	@RequestMapping(value="/new", method=RequestMethod.GET)
 	public ModelAndView newMeal(ModelAndView mav) {
 		Meal newMeal = new Meal();

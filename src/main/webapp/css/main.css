@@ -1,0 +1,92 @@
+@charset "UTF-8";
+.kuchnia_title{
+	color:white;
+	text-shadow: 3px 3px 3px #000000;
+	font-size: 45px;
+	text-align: center;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+body {
+  color: white;
+  font-size: 20px;
+  font-family: "Trirong", serif;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px #000000;
+  background-image: url("kuchnia.jpg");
+  background-repeat: no-repeat;
+  background-color: pink;
+  background-size: cover;
+  
+}
+table {
+	width: 100%;
+	margin: auto;
+	margin-top: 10px;
+	margin-bottom: 5px;
+	font-size: 14px;
+	border-collapse: collapse;
+	background-color: white;
+	border: 2px solid rgb(210, 210, 210);
+	color: rgb(60, 60, 60);
+	text-shadow: 1px 1px 1px #ffffff;
+}
+tr:hover {
+	background-color: rgb(255, 99, 71, 0.10);
+	border-bottom: 1px solid #ddd;
+	}
+th {
+	background-color: Tomato;
+	border: 2px solid rgb(210, 210, 210);
+	text-shadow: 1px 1px 1px #000000;
+	color:white;
+}
+td {
+	text-align: center;
+	border: 2px solid rgb(210, 210, 210);
+}
+div.top {
+	margin: auto;
+	border-style: double;
+	border-color: white;
+	border-width: 10px;
+	border-radius: 12px;
+	padding: 10px;
+	width: 35%;
+}
+div.bot {
+	border-style: double;
+	border-color: white;
+	border-width: 10px;
+	border-radius: 12px;
+	padding: 5px;
+	width: 70%;
+	margin-top: 10px;
+}
+form {
+	margin-top: 5px;
+}
+input[type=text] {
+  width: 30%;
+  padding: 5px;
+  box-sizing: border-box;
+}
+.button {
+	border: 2px solid white;
+	border-radius: 10px;
+	text-align: center;
+	text-shadow: 1px 1px 1px #000000;
+	text-decoration: none;
+	background-color: Tomato;
+	color:white;
+}
+img {
+	border-style: solid;
+	border-color: white;
+	border-width: 5px;
+	border-radius: 12px;
+}
+#recipe {
+	width: 400px;
+	height: 300px
+}
